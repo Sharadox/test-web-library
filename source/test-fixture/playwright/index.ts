@@ -9,16 +9,18 @@ export const test = Object.assign(
   { skip: vi.fn() },
 );
 
-export const expect = (value: unknown) =>
+/** Records `expect(value).matcher(...)` and `expect(value).not.matcher(...)` (as "not.matcher"). */
+export const expect = (value: unknown, prefix = ""): Record<string, unknown> =>
   new Proxy(
     {},
     {
-      get:
-        (_, matcher: string) =>
-        (...expected: unknown[]) => {
-          assertions.push({ value, matcher, expected });
-          return Promise.resolve();
-        },
+      get: (_, matcher: string) =>
+        matcher === "not"
+          ? expect(value, "not.")
+          : (...expected: unknown[]) => {
+              assertions.push({ value, matcher: prefix + matcher, expected });
+              return Promise.resolve();
+            },
     },
   );
 

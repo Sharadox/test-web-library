@@ -3,7 +3,7 @@
 > Playwright helpers + shared e2e suites for Next.js sites.
 
 - /visual-snapshot prepareVisualSnapshot(page, url, { time, step=400 })
-- /search-engine-suite describeSearchEngine({ origin, pages: [{ path, language, heading }], structuredDataTypes, routes? }); STANDARD_ROUTES = sitemap.xml, robots.txt, manifest.webmanifest
+- /search-engine-suite describeSearchEngine({ indexable?=true, origin, pages: [{ path, language, heading }], structuredDataTypes, routes? }); STANDARD_ROUTES = sitemap.xml, robots.txt, manifest.webmanifest
 - /installability-suite describeInstallability(path) (Chromium CDP Page.getInstallabilityErrors)
 - /preference-suite describeLocaleMemory({ browserLocale, automaticPath, switchName, pick: { link, path } }), describeStyleMemory({ path, attribute, switchName, colorScheme, initial, pick: { radio, style } }), describeConsent({ path, dialogName, deny, customize, save, preferences, category, storageKey, expectedGranted })
 - Peer: @playwright/test. Licence: Sharadox Open Source Licence 0.1.0

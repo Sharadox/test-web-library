@@ -25,11 +25,11 @@ describe("describeSearchEngine", () => {
     const page = fake({ goto, locator: () => fake({ first: () => fake({ textContent: async () => graph }) }) });
     await registered[0]!.body({ page });
     expect(goto).toHaveBeenCalledWith("/pt");
-    expect(assertions.at(-1)).toMatchObject({
+    expect(assertions.find((entry) => entry.matcher === "toEqual")).toMatchObject({
       value: ["Organization", "WebSite"],
-      matcher: "toEqual",
       expected: [["Organization", "WebSite"]],
     });
+    expect(assertions.at(-1)).toMatchObject({ matcher: "not.toHaveAttribute", expected: ["content", /noindex/] });
     expect(
       assertions.some(
         (entry) => entry.matcher === "toHaveAttribute" && entry.expected[1] === "https://sharadox.com/pt",
@@ -45,7 +45,21 @@ describe("describeSearchEngine", () => {
     });
     const page = fake({ locator: () => fake({ first: () => fake({ textContent: async () => null }) }) });
     await registered[0]!.body({ page });
-    expect(assertions.at(-1)).toMatchObject({ value: [], matcher: "toEqual" });
+    expect(assertions.find((entry) => entry.matcher === "toEqual")).toMatchObject({ value: [] });
+  });
+
+  test("reads a single JSON-LD node, and checks a demo stays out of search engines", async () => {
+    describeSearchEngine({
+      origin: "https://a.pt",
+      structuredDataTypes: ["Restaurant"],
+      indexable: false,
+      pages: [{ path: "/pt", language: "pt-PT", heading: "A" }],
+    });
+    const node = JSON.stringify({ "@type": "Restaurant" });
+    const page = fake({ locator: () => fake({ first: () => fake({ textContent: async () => node }) }) });
+    await registered[0]!.body({ page });
+    expect(assertions.find((entry) => entry.matcher === "toEqual")).toMatchObject({ value: ["Restaurant"] });
+    expect(assertions.at(-1)).toMatchObject({ matcher: "toHaveAttribute", expected: ["content", /noindex/] });
   });
 
   test("requests the standard routes and the site's own", async () => {

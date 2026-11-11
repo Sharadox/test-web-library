@@ -11,8 +11,10 @@ export interface SearchEngineSuiteOptions {
   /** The public origin canonical links use, for example "https://sharadox.com". */
   origin: string;
   pages: readonly SearchEnginePage[];
-  /** The `@type` of each node in the JSON-LD `@graph`, in order. */
+  /** The `@type` of each JSON-LD node in order: the `@graph` nodes, or the single node when there is no graph. */
   structuredDataTypes: readonly string[];
+  /** False checks that pages ask search engines not to index them (previews and demos); true by default. */
+  indexable?: boolean;
   /** Routes that must answer 200 (share images, sitemap, robots, manifest…). */
   routes?: readonly string[];
 }
