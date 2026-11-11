@@ -7,3 +7,4 @@
 - /installability-suite describeInstallability(path) (Chromium CDP Page.getInstallabilityErrors)
 - /preference-suite describeLocaleMemory({ browserLocale, automaticPath, switchName, pick: { link, path } }), describeStyleMemory({ path, attribute, switchName, colorScheme, initial, pick: { radio, style } }), describeConsent({ path, dialogName, deny, customize, save, preferences, category, storageKey, expectedGranted })
 - Peer: @playwright/test. Licence: Sharadox Open Source Licence 0.1.0
+- /browser-environment installBrowserEnvironment({ reducedMotion=false, finePointer=true, dark=true }) (Vitest happy-dom: IntersectionObserver/ResizeObserver stubs, matchMedia, scrollTo, Motion skipAnimations); reportIntersection(isIntersecting=true, filter?); observers
