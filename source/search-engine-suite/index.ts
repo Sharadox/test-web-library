@@ -17,6 +17,7 @@ export function describeSearchEngine({
   origin,
   pages,
   structuredDataTypes,
+  indexable = true,
   routes = [],
 }: SearchEngineSuiteOptions): void {
   test("every page has complete search engine metadata", async ({ page }) => {
@@ -31,9 +32,14 @@ export function describeSearchEngine({
       const data = JSON.parse(
         (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? "{}",
       ) as {
+        "@type"?: string;
         "@graph"?: { "@type": string }[];
       };
-      expect((data["@graph"] ?? []).map((node) => node["@type"])).toEqual(structuredDataTypes);
+      const nodes = data["@graph"] ?? (data["@type"] ? [{ "@type": data["@type"] }] : []);
+      expect(nodes.map((node) => node["@type"])).toEqual(structuredDataTypes);
+      const robots = page.locator('meta[name="robots"]');
+      if (indexable) await expect(robots).not.toHaveAttribute("content", /noindex/);
+      else await expect(robots).toHaveAttribute("content", /noindex/);
     }
   });
 
