@@ -7,7 +7,7 @@ export const observers: ObserverRecord[] = [];
 
 /**
  * Gives a Vitest happy-dom environment the browser features components use and the DOM lacks: intersection and
- * resize observers, media queries (reduced motion, fine pointer, colour scheme), `scrollTo`, and Motion animations
+ * resize observers, media queries (reduced motion, fine pointer, color scheme), `scrollTo`, and Motion animations
  * that finish at once (so unmounting never cancels one mid-way). Call it in `beforeEach`, and restore with
  * `vi.restoreAllMocks()` and `vi.unstubAllGlobals()`.
  *
