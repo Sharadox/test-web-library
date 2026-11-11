@@ -9,6 +9,8 @@
 - **`describeStyleMemory`:** a style group starts on its default and remembers the visitor's choice.
 - **`describeConsent`:** Deny lasts for the visit, manual choices are kept, and the preferences link reopens the panel.
 
+For Vitest component tests, `installBrowserEnvironment()` adds what happy-dom lacks: intersection and resize observers, media queries, `scrollTo`, and Motion animations that finish at once. `reportIntersection()` marks watched elements as visible.
+
 ## Install
 
 ```sh
