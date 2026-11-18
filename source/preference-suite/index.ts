@@ -18,12 +18,16 @@ export function describeLocaleMemory({ browserLocale, automaticPath, switchName,
   test("the language follows the browser until the visitor picks one, then is remembered", async ({ browser }) => {
     const context = await browser.newContext({ ...FRESH, locale: browserLocale });
     const page = await context.newPage();
+    // Pages arrive through the router, and a busy machine (CI) takes a while: each step waits for the page to settle.
+    const settled = { timeout: 15_000 };
     await page.goto("/");
-    await expect(page).toHaveURL(new RegExp(`${automaticPath}$`));
+    await expect(page).toHaveURL(new RegExp(`${automaticPath}$`), settled);
+    await page.waitForLoadState("load");
     await page.getByRole("group", { name: switchName }).getByRole("link", { name: pick.link }).first().click();
-    await expect(page).toHaveURL(new RegExp(`${pick.path}$`));
+    await expect(page).toHaveURL(new RegExp(`${pick.path}$`), settled);
+    await page.waitForLoadState("load");
     await page.goto("/");
-    await expect(page).toHaveURL(new RegExp(`${pick.path}$`));
+    await expect(page).toHaveURL(new RegExp(`${pick.path}$`), settled);
     await context.close();
   });
 }
