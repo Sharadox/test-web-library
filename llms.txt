@@ -8,3 +8,7 @@
 - /preference-suite describeLocaleMemory({ browserLocale, automaticPath, switchName, pick: { link, path } }), describeStyleMemory({ path, attribute, switchName, colorScheme, initial, pick: { radio, style } }), describeConsent({ path, dialogName, deny, customize, save, preferences, category, storageKey, expectedGranted })
 - Peer: @playwright/test. License: Sharadox Open Source License 0.1.0
 - /browser-environment installBrowserEnvironment({ reducedMotion=false, finePointer=true, dark=true }) (Vitest happy-dom: IntersectionObserver/ResizeObserver stubs, matchMedia, scrollTo, Motion skipAnimations); reportIntersection(isIntersecting=true, filter?); observers
+
+## Changes
+
+- 0.3.2: describeLocaleMemory waits for each page to load, with 15 seconds per step, so a busy machine (CI) no longer fails it now and then
