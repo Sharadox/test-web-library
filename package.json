@@ -66,7 +66,7 @@
     "@sharadox/turborepo-configuration-web-library": "^0.1.0",
     "@sharadox/type-script-configuration-web-library": "^0.2.0",
     "@sharadox/vitest-configuration-web-library": "^0.1.2",
-    "@types/node": "^24.19.2",
+    "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
     "eslint": "9.39.5",
     "happy-dom": "^21.0.4",
