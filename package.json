@@ -72,7 +72,7 @@
     "happy-dom": "^21.0.4",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "motion": "^12.43.0",
+    "motion": "^14.14.0",
     "prettier": "^3.10.0",
     "turbo": "^2.11.10",
     "typedoc": "^0.28.20",
