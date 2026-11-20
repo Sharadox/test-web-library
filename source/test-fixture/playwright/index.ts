@@ -10,19 +10,22 @@ export const test = Object.assign(
 );
 
 /** Records `expect(value).matcher(...)` and `expect(value).not.matcher(...)` (as "not.matcher"). */
-export const expect = (value: unknown, prefix = ""): Record<string, unknown> =>
+const expectation = (value: unknown, prefix: string): Record<string, unknown> =>
   new Proxy(
     {},
     {
       get: (_, matcher: string) =>
         matcher === "not"
-          ? expect(value, "not.")
+          ? expectation(value, "not.")
           : (...expected: unknown[]) => {
               assertions.push({ value, matcher: prefix + matcher, expected });
               return Promise.resolve();
             },
     },
   );
+
+/** Playwright's `expect(value, message?)`: the message only labels a failure, so it is left out of the record. */
+export const expect = (value: unknown): Record<string, unknown> => expectation(value, "");
 
 /**
  * A fake page or locator: every method returns another fake, except the ones given in `answers`, which return
