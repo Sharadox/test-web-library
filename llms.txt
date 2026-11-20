@@ -10,5 +10,4 @@
 - /browser-environment installBrowserEnvironment({ reducedMotion=false, finePointer=true, dark=true }) (Vitest happy-dom: IntersectionObserver/ResizeObserver stubs, matchMedia, scrollTo, Motion skipAnimations); reportIntersection(isIntersecting=true, filter?); observers
 
 ## Changes
-
-- 0.3.2: describeLocaleMemory waits for each page to load, with 15 seconds per step, so a busy machine (CI) no longer fails it now and then
+- Changes by version: CHANGELOG.md (in the package)
