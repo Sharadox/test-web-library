@@ -15,3 +15,4 @@
 - `/social-image-suite` describeSocialImages({ locales, images: SOCIAL_IMAGES }): registers the end-to-end test that every /<locale>/social/<name> is a PNG of its size and other names are 404
 - `/logo-suite` describeLogoBackToTop({ path, prepare? }): the bar's first link on the home page glides to the top in the same document
 - `/consumer-notice-suite` describeConsumerNotices(path): the footer links the Livro de Reclamações and CIMAAL
+- `/mail-policy-suite` describeMailPolicy({ root, domain, mx }) (Vitest): an MTA-STS app's policy (STSv1, enforce, the mx list, max_age 86400) and vercel.json (plain text, every other path to https://<domain>, temporary)
