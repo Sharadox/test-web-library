@@ -24,8 +24,23 @@ const expectation = (value: unknown, prefix: string): Record<string, unknown> =>
     },
   );
 
-/** Playwright's `expect(value, message?)`: the message only labels a failure, so it is left out of the record. */
-export const expect = (value: unknown): Record<string, unknown> => expectation(value, "");
+/**
+ * Playwright's `expect(value, message?)`: the message only labels a failure, so it is left out of the record.
+ * `expect.poll(read)` reads the value once and records it as "poll.matcher".
+ */
+export const expect = Object.assign((value: unknown): Record<string, unknown> => expectation(value, ""), {
+  poll: (read: () => unknown): Record<string, unknown> =>
+    new Proxy(
+      {},
+      {
+        get:
+          (_, matcher: string) =>
+          async (...expected: unknown[]) => {
+            assertions.push({ value: await read(), matcher: `poll.${matcher}`, expected });
+          },
+      },
+    ),
+});
 
 /**
  * A fake page or locator: every method returns another fake, except the ones given in `answers`, which return

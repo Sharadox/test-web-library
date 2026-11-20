@@ -13,3 +13,5 @@
 - /three-fiber: a stand-in for @react-three/fiber in unit tests (vi.mock("@react-three/fiber", () => import("@sharadox/test-web-library/three-fiber"))): Canvas renders children in <div data-testid="canvas">, useFrame collects callbacks in `frames` to run by hand, useThree gives a renderer with pixel ratio 2 (or a selector's pick)
 - Changes by version: CHANGELOG.md (in the package)
 - `/social-image-suite` describeSocialImages({ locales, images: SOCIAL_IMAGES }): registers the end-to-end test that every /<locale>/social/<name> is a PNG of its size and other names are 404
+- `/logo-suite` describeLogoBackToTop({ path, prepare? }): the bar's first link on the home page glides to the top in the same document
+- `/consumer-notice-suite` describeConsumerNotices(path): the footer links the Livro de Reclamações and CIMAAL

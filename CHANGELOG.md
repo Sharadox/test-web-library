@@ -2,6 +2,12 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.6.0
+
+- `logo-suite`: `describeLogoBackToTop({ path, prepare? })`, that the home page's logo glides back to the top without reloading.
+- `consumer-notice-suite`: `describeConsumerNotices(path)`, that the footer carries the complaints book and the dispute resolution center.
+- The Playwright stand-in supports `expect.poll`.
+
 ## 0.5.0
 
 - `social-image-suite`: `describeSocialImages({ locales, images })`, the end-to-end check every site ran on its own: each social image served in every language as a PNG of its size, other names not found.
