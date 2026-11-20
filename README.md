@@ -47,6 +47,8 @@ The suites that need a clean browser open their own context with empty storage, 
 
 ### Also exported
 
+- `…/three-fiber`: a stand-in for `@react-three/fiber` in unit tests: `Canvas` renders a plain element, `useFrame` collects callbacks in `frames` to run by hand, `useThree` gives a renderer with a pixel ratio of 2
+
 Smaller parts, mostly building blocks of the main exports:
 
 - `…/browser-environment`: installBrowserEnvironment(), observers, reportIntersection(element, visible): matchMedia, IntersectionObserver and friends for component tests
