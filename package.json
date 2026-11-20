@@ -60,7 +60,7 @@
   },
   "homepage": "https://github.com/Sharadox/test-web-library#readme",
   "devDependencies": {
-    "@playwright/test": "1.65.0",
+    "@playwright/test": "1.65.1",
     "@sharadox/es-lint-configuration-web-library": "^0.1.1",
     "@sharadox/prettier-configuration-web-library": "^0.1.0",
     "@sharadox/turborepo-configuration-web-library": "^0.1.0",
@@ -80,7 +80,7 @@
     "vitest": "^5.1.0"
   },
   "dependencies": {
-    "@sharadox/web-library": "^0.5.0"
+    "@sharadox/web-library": "^0.7.0"
   },
   "peerDependencies": {
     "@playwright/test": ">=1.50",
