@@ -10,5 +10,5 @@
 - /browser-environment installBrowserEnvironment({ reducedMotion=false, finePointer=true, dark=true }) (Vitest happy-dom: IntersectionObserver/ResizeObserver stubs, matchMedia, scrollTo, Motion skipAnimations); reportIntersection(isIntersecting=true, filter?); observers
 
 ## Changes
-
-- 0.3.2: describeLocaleMemory waits for each page to load, with 15 seconds per step, so a busy machine (CI) no longer fails it now and then
+- /three-fiber: a stand-in for @react-three/fiber in unit tests (vi.mock("@react-three/fiber", () => import("@sharadox/test-web-library/three-fiber"))): Canvas renders children in <div data-testid="canvas">, useFrame collects callbacks in `frames` to run by hand, useThree gives a renderer with pixel ratio 2 (or a selector's pick)
+- Changes by version: CHANGELOG.md (in the package)

@@ -1,6 +1,6 @@
 {
   "name": "@sharadox/test-web-library",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Test helpers for websites: Playwright visual snapshots and shared end-to-end suites (search engines, installability, remembered language and style, cookie consent), and a browser environment for Vitest component tests.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
@@ -25,7 +25,8 @@
     "LICENCA.md",
     "LICENSE.md",
     "NOTICE.md",
-    "llms.txt"
+    "llms.txt",
+    "CHANGELOG.md"
   ],
   "sideEffects": false,
   "engines": {
@@ -67,6 +68,7 @@
     "@sharadox/type-script-configuration-web-library": "^0.2.0",
     "@sharadox/vitest-configuration-web-library": "^0.1.2",
     "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
     "@vitest/coverage-v8": "^5.1.0",
     "eslint": "9.39.5",
     "happy-dom": "^21.0.4",
@@ -74,6 +76,7 @@
     "lint-staged": "^17.6.0",
     "motion": "^12.43.0",
     "prettier": "^3.10.0",
+    "react": "^19.3.1",
     "turbo": "^2.11.10",
     "typedoc": "^0.28.20",
     "typescript": "6.0.3",
@@ -84,8 +87,9 @@
   },
   "peerDependencies": {
     "@playwright/test": ">=1.50",
-    "vitest": ">=5",
-    "motion": ">=12"
+    "motion": ">=12",
+    "react": ">=19",
+    "vitest": ">=5"
   },
   "peerDependenciesMeta": {
     "@playwright/test": {
@@ -95,6 +99,9 @@
       "optional": true
     },
     "motion": {
+      "optional": true
+    },
+    "react": {
       "optional": true
     }
   }

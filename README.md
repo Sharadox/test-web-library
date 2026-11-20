@@ -45,6 +45,14 @@ describeSearchEngine({
 
 The suites that need a clean browser open their own context with empty storage, whatever the project's starting state.
 
+### Also exported
+
+- `…/three-fiber`: a stand-in for `@react-three/fiber` in unit tests: `Canvas` renders a plain element, `useFrame` collects callbacks in `frames` to run by hand, `useThree` gives a renderer with a pixel ratio of 2
+
+Smaller parts, mostly building blocks of the main exports:
+
+- `…/browser-environment`: installBrowserEnvironment(), observers, reportIntersection(element, visible): matchMedia, IntersectionObserver and friends for component tests
+
 ## Develop
 
 `pnpm verify` runs formatting, lint, type-check, tests with 100% coverage and the build. Branches follow `<feature>.development` → `development` → `index`, and releases are `v<version>` tags on `index`.
