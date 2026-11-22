@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.8.0
+
+Visual snapshots skip WebGL drawing by default (`drawWebGl` keeps it): the canvases are masked anyway, and drawing them in software on a runner without a GPU made each visual test take minutes (Luis Pires Decor's home: 5.6 minutes to 13 seconds, same screenshot).
+
 ## 0.7.0
 
 `mail-policy-suite`: `describeMailPolicy({ root, domain, mx })`, the unit tests every MTA-STS application wrote on its own: the policy enforces TLS for the domain's mail servers for a day, and Vercel serves it as plain text and sends every other path to the domain, temporarily.
