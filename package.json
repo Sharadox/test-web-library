@@ -1,6 +1,6 @@
 {
   "name": "@sharadox/test-web-library",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Test helpers for websites: Playwright visual snapshots and shared end-to-end suites (search engines, installability, remembered language and style, cookie consent), and a browser environment for Vitest component tests.",
   "private": false,
   "license": "SEE LICENSE IN LICENCA.md",
@@ -62,11 +62,11 @@
   "homepage": "https://github.com/Sharadox/test-web-library#readme",
   "devDependencies": {
     "@playwright/test": "1.65.0",
-    "@sharadox/es-lint-configuration-web-library": "^0.1.1",
-    "@sharadox/prettier-configuration-web-library": "^0.1.0",
-    "@sharadox/turborepo-configuration-web-library": "^0.1.0",
-    "@sharadox/type-script-configuration-web-library": "^0.2.0",
-    "@sharadox/vitest-configuration-web-library": "^0.1.2",
+    "@sharadox/es-lint-configuration-web-library": "^0.1.2",
+    "@sharadox/prettier-configuration-web-library": "^0.1.1",
+    "@sharadox/turborepo-configuration-web-library": "^0.1.3",
+    "@sharadox/type-script-configuration-web-library": "^0.2.2",
+    "@sharadox/vitest-configuration-web-library": "^0.2.0",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@vitest/coverage-v8": "^5.1.0",
@@ -83,7 +83,7 @@
     "vitest": "^5.1.0"
   },
   "dependencies": {
-    "@sharadox/web-library": "^0.8.0"
+    "@sharadox/web-library": "^0.11.0"
   },
   "peerDependencies": {
     "@playwright/test": ">=1.50",
