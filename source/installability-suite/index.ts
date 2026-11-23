@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "@sharadox/test-web-library/end-to-end-test";
 
 /**
  * Registers a test that Chromium considers the page installable (a valid manifest, icons and HTTPS-equivalent

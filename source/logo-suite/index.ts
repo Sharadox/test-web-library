@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "@sharadox/test-web-library/end-to-end-test";
 import type { LogoSuiteOptions } from "@sharadox/test-web-library/logo-suite/type";
 
 /**

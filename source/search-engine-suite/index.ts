@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "@sharadox/test-web-library/end-to-end-test";
 import type { SearchEngineSuiteOptions } from "@sharadox/test-web-library/search-engine-suite/type";
 
 /** The routes every Sharadox site serves for search engines, share cards and installation. */

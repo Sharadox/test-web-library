@@ -4,9 +4,18 @@ import { vi } from "vitest";
 export const registered: { name: string; body: (fixtures: Record<string, unknown>) => Promise<void> }[] = [];
 export const assertions: { value: unknown; matcher: string; expected: unknown[] }[] = [];
 
+/** What `test.extend(fixtures)` was given, in order, so a module's fixtures can be run on fakes. */
+export const extensions: Record<string, unknown>[] = [];
+
 export const test = Object.assign(
   (name: string, body: (fixtures: Record<string, unknown>) => Promise<void>) => registered.push({ name, body }),
-  { skip: vi.fn() },
+  {
+    skip: vi.fn(),
+    extend: (fixtures: Record<string, unknown>) => {
+      extensions.push(fixtures);
+      return test;
+    },
+  },
 );
 
 /** Records `expect(value).matcher(...)` and `expect(value).not.matcher(...)` (as "not.matcher"). */

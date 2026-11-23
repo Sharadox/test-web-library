@@ -2,6 +2,8 @@
 
 > Playwright helpers + shared e2e suites for Next.js sites.
 
+- /end-to-end-test test, expect: Playwright's, with a page fixture that skips WebGL drawing (drawWebGl option, false by default); every suite here uses it, sites import it in their end-to-end tests
+- /web-gl-drawing skipWebGlDrawing(): page-side script (addInitScript) making WebGL draw calls no-ops
 - /visual-snapshot prepareVisualSnapshot(page, url, { time, step=400, drawWebGl=false }) — WebGL draw calls are no-ops unless drawWebGl (canvases are masked in snapshots)
 - /search-engine-suite describeSearchEngine({ indexable?=true, origin, pages: [{ path, language, heading }], structuredDataTypes, routes? }); STANDARD_ROUTES = sitemap.xml, robots.txt, manifest.webmanifest
 - /installability-suite describeInstallability(path) (Chromium CDP Page.getInstallabilityErrors)
