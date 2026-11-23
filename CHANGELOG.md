@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.9.0
+
+`end-to-end-test`: `test` and `expect` whose pages run WebGL scenes without drawing them (no browser test compares a scene's pixels; drawing them in software took most of the time); `test.use({ drawWebGl: true })` keeps it. Every suite here uses it. `web-gl-drawing`: the shared page-side script, also used by `prepareVisualSnapshot`.
+
 ## 0.8.0
 
 Visual snapshots skip WebGL drawing by default (`drawWebGl` keeps it): the canvases are masked anyway, and drawing them in software on a runner without a GPU made each visual test take minutes (Luis Pires Decor's home: 5.6 minutes to 13 seconds, same screenshot).

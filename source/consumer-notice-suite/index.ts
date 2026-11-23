@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "@sharadox/test-web-library/end-to-end-test";
 
 /**
  * Registers a test that the footer carries what Portuguese consumer law asks of every site: the link to the

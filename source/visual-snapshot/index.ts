@@ -1,4 +1,5 @@
 import type { Page } from "@playwright/test";
+import { skipWebGlDrawing } from "@sharadox/test-web-library/web-gl-drawing";
 import type { VisualSnapshotOptions } from "@sharadox/test-web-library/visual-snapshot/type";
 
 /**
@@ -11,12 +12,7 @@ export async function prepareVisualSnapshot(
   url: string,
   { time = new Date("2026-11-08T12:00:00Z"), step = 400, drawWebGl = false }: VisualSnapshotOptions = {},
 ): Promise<void> {
-  if (!drawWebGl)
-    await page.addInitScript(() => {
-      for (const context of [WebGLRenderingContext, WebGL2RenderingContext])
-        for (const name of ["drawArrays", "drawElements", "drawArraysInstanced", "drawElementsInstanced", "clear"])
-          if (name in context.prototype) Object.defineProperty(context.prototype, name, { value: () => {} });
-    });
+  if (!drawWebGl) await page.addInitScript(skipWebGlDrawing);
   await page.clock.install({ time });
   await page.clock.pauseAt(new Date(time.getTime() + 1000));
   await page.goto(url);
