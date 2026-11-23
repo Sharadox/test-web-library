@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.9.1
+
+Tested with motion 14 and vitest-configuration-web-library 0.2.1 (no change to the package).
+
 ## 0.9.0
 
 `end-to-end-test`: `test` and `expect` whose pages run WebGL scenes without drawing them (no browser test compares a scene's pixels; drawing them in software took most of the time); `test.use({ drawWebGl: true })` keeps it. Every suite here uses it. `web-gl-drawing`: the shared page-side script, also used by `prepareVisualSnapshot`.
