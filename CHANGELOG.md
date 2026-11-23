@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.9.2
+
+Workflows from git-hub-action-library v0.2.2: npm Trusted Publishing only
+
 ## 0.9.1
 
 Tested with motion 14 and vitest-configuration-web-library 0.2.1 (no change to the package).
