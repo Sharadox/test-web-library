@@ -36,12 +36,14 @@ describeSearchEngine({
 
 ## API
 
-| Import                   | Export                                                                                                                            |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| `…/visual-snapshot`      | `prepareVisualSnapshot(page, url, { time?, step?, drawWebGl? })`                                                                  |
-| `…/search-engine-suite`  | `describeSearchEngine({ origin, pages, structuredDataTypes, routes? })`, `STANDARD_ROUTES`                                        |
-| `…/installability-suite` | `describeInstallability(path)`                                                                                                    |
-| `…/preference-suite`     | `describeLocaleMemory(options)`, `describeStyleMemory(options)`, `describeConsent(options)`; options in `…/preference-suite/type` |
+| Import                   | Export                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `…/end-to-end-test`      | `test` and `expect` for a site's browser tests: each page runs its WebGL scenes without drawing them; `test.use({ drawWebGl: true })` keeps the drawing |
+| `…/web-gl-drawing`       | `skipWebGlDrawing`, the page-side script (for `page.addInitScript`) that makes WebGL drawing calls do nothing                                           |
+| `…/visual-snapshot`      | `prepareVisualSnapshot(page, url, { time?, step?, drawWebGl? })`                                                                                        |
+| `…/search-engine-suite`  | `describeSearchEngine({ origin, pages, structuredDataTypes, routes? })`, `STANDARD_ROUTES`                                                              |
+| `…/installability-suite` | `describeInstallability(path)`                                                                                                                          |
+| `…/preference-suite`     | `describeLocaleMemory(options)`, `describeStyleMemory(options)`, `describeConsent(options)`; options in `…/preference-suite/type`                       |
 
 The suites that need a clean browser open their own context with empty storage, whatever the project's starting state.
 
