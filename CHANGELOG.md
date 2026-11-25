@@ -2,6 +2,10 @@
 
 What changed in each version of `@sharadox/test-web-library`, newest first.
 
+## 0.9.3
+
+`describeSearchEngine` takes `installable: false` for a site installed through another one: it then checks the site has no manifest.
+
 ## 0.9.2
 
 Workflows from git-hub-action-library v0.2.2: npm Trusted Publishing only
