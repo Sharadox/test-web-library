@@ -5,7 +5,7 @@
 - /end-to-end-test test, expect: Playwright's, with a page fixture that skips WebGL drawing (drawWebGl option, false by default); every suite here uses it, sites import it in their end-to-end tests
 - /web-gl-drawing skipWebGlDrawing(): page-side script (addInitScript) making WebGL draw calls no-ops
 - /visual-snapshot prepareVisualSnapshot(page, url, { time, step=400, drawWebGl=false }) — WebGL draw calls are no-ops unless drawWebGl (canvases are masked in snapshots)
-- /search-engine-suite describeSearchEngine({ indexable?=true, origin, pages: [{ path, language, heading }], structuredDataTypes, routes? }); STANDARD_ROUTES = sitemap.xml, robots.txt, manifest.webmanifest
+- /search-engine-suite describeSearchEngine({ indexable?=true, installable?=true (false: /manifest.webmanifest must be 404), origin, pages: [{ path, language, heading }], structuredDataTypes, routes? }); STANDARD_ROUTES = sitemap.xml, robots.txt, manifest.webmanifest
 - /installability-suite describeInstallability(path) (Chromium CDP Page.getInstallabilityErrors)
 - /preference-suite describeLocaleMemory({ browserLocale, automaticPath, switchName, pick: { link, path } }), describeStyleMemory({ path, attribute, switchName, colorScheme, initial, pick: { radio, style } }), describeConsent({ path, dialogName, deny, customize, save, preferences, category, storageKey, expectedGranted })
 - Peer: @playwright/test. License: Sharadox Open Source License 0.1.0

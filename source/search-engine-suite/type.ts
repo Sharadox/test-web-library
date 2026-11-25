@@ -15,6 +15,11 @@ export interface SearchEngineSuiteOptions {
   structuredDataTypes: readonly string[];
   /** False checks that pages ask search engines not to index them (previews and demos); true by default. */
   indexable?: boolean;
+  /**
+   * False when the site is installed through another one (an account site, through its company's site): it then
+   * must have no manifest. True by default.
+   */
+  installable?: boolean;
   /** Routes that must answer 200 (share images, sitemap, robots, manifest…). */
   routes?: readonly string[];
 }

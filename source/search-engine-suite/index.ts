@@ -18,6 +18,7 @@ export function describeSearchEngine({
   pages,
   structuredDataTypes,
   indexable = true,
+  installable = true,
   routes = [],
 }: SearchEngineSuiteOptions): void {
   test("every page has complete search engine metadata", async ({ page }) => {
@@ -45,7 +46,9 @@ export function describeSearchEngine({
 
   test("search engine, share and install routes are served", async ({ request }) => {
     for (const path of [...STANDARD_ROUTES, ...routes]) {
-      expect((await request.get(path)).status(), path).toBe(200);
+      // A site installed through another one (an account site, through its company's) has no manifest at all.
+      const expected = !installable && path === "/manifest.webmanifest" ? 404 : 200;
+      expect((await request.get(path)).status(), path).toBe(expected);
     }
   });
 }

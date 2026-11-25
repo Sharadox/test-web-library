@@ -3,7 +3,7 @@
 [Playwright](https://playwright.dev) helpers and shared end-to-end suites, so every site runs the same checks with one call each:
 
 - **`prepareVisualSnapshot(page, url)`:** a frozen clock, fonts loaded, every reveal-on-scroll triggered and animations settled before a full-page screenshot. WebGL scenes run but don't draw, since snapshots mask their canvases (drawing them in software made a visual test take minutes); `drawWebGl: true` keeps them drawing.
-- **`describeSearchEngine`:** every page's language, heading, canonical address, hreflang default, share image, Twitter card, JSON-LD types (a graph or a single node) and whether search engines may index it (`indexable: false` for demos), plus the sitemap, robots and manifest routes.
+- **`describeSearchEngine`:** every page's language, heading, canonical address, hreflang default, share image, Twitter card, JSON-LD types (a graph or a single node) and whether search engines may index it (`indexable: false` for demos), plus the sitemap, robots and manifest routes (`installable: false` for a site installed through another one: it must have no manifest).
 - **`describeInstallability(path)`:** Chromium reports no installability errors.
 - **`describeLocaleMemory`:** `/` follows the browser's language until the visitor picks one, then remembers it.
 - **`describeStyleMemory`:** a style group starts on its default and remembers the visitor's choice.

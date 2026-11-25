@@ -82,3 +82,15 @@ describe("describeSearchEngine", () => {
     expect(get).toHaveBeenCalledTimes(STANDARD_ROUTES.length);
   });
 });
+
+describe("describeSearchEngine without an install file", () => {
+  test("a site installed through another one checks that it has no manifest", async () => {
+    describeSearchEngine({ origin: "https://a.pt", structuredDataTypes: [], pages: [], installable: false });
+    const get = vi.fn<(path: string) => Promise<{ status: () => number }>>(async (path) => ({
+      status: () => (path === "/manifest.webmanifest" ? 404 : 200),
+    }));
+    await registered[1]!.body({ request: { get } });
+    expect(get.mock.calls.map(([path]) => path)).toEqual(["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]);
+    expect(assertions.map((entry) => entry.expected[0])).toEqual([200, 200, 404]);
+  });
+});
